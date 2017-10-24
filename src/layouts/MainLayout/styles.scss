@@ -1,0 +1,10 @@
+.main-layout {
+  height: 100%;
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    margin-bottom: 60px;
+  }
+}

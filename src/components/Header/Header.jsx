@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
 import {
-  Link
+  Link,
 } from 'react-router-dom';
 import './styles.scss';
 
 class Header extends PureComponent {
-  render(){
+  render() {
     return (
-      <nav className="navbar is-transparent">
+      <nav className="navbar">
         <div className="navbar-brand">
           LOGO
         </div>
@@ -22,7 +22,7 @@ class Header extends PureComponent {
           </div>
         </div>
       </nav>
-    )
+    );
   }
 }
 

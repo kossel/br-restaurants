@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import RestaurantItem from 'components/RestaurantItem';
+import './styles.scss';
 
 const propTypes = {
   restaurants: PropTypes.array,
@@ -25,9 +27,17 @@ class RestaurantList extends Component {
     const { restaurants, loading } = this.props;
     if (!loading) {
       return (
-        <div>
+        <div className="restaurant-list__container">
           {
-            restaurants.map(restaurant => <div>{restaurant.name}</div>)
+            restaurants.map(restaurant => (
+              <RestaurantItem
+                key={restaurant.name.trim()}
+                name={restaurant.name}
+                bgImage={restaurant.backgroundImageURL}
+                category={restaurant.category}
+              />
+              ),
+            )
           }
         </div>
       );
