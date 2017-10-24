@@ -9,12 +9,22 @@ body {
   background: #ECE9E6;
 }
 
+header {
+  height: 60px;
+}
+
 #app{
   height: 100%;
 }
 
-.main {
+.main-layout {
   display: flex;
-  flex-direction: column;
   height: 100%;
+  flex-direction: column;
+}
+
+.main-content {
+  padding: 0;
+  flex: 1;
+  position: relative;
 }

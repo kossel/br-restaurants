@@ -1,20 +1,18 @@
 import React from 'react';
 import RestaurantList from 'containers/RestaurantsList';
 import RestaurantDetail from 'components/RestaurantDetail';
-import MainLayout from 'layouts/MainLayout';
+import './styles.scss';
 
 function Home() {
   return (
-    <MainLayout>
-      <div className="row">
-        <div className="col-md-6">
-          <RestaurantList />
-        </div>
-        <div className="col-md-6">
-          <RestaurantDetail />
-        </div>
+    <div className="row no-gutters home__row-content">
+      <div className="col-md-4 home__list-container">
+        <RestaurantList />
       </div>
-    </MainLayout>
+      <div className="col-md-8 d-none d-sm-block" >
+        <RestaurantDetail />
+      </div>
+    </div>
   );
 }
 

@@ -7,21 +7,24 @@ import './styles.scss';
 class Header extends PureComponent {
   render() {
     return (
-      <nav className="navbar">
-        <div className="navbar-brand">
-          LOGO
-        </div>
-        <div className="navbar-menu">
-          <div className="navbar-end">
-            <div className="navbar-item">
-              <Link to="/">Home</Link>
-            </div>
-            <div className="navbar-item">
-              <Link to="/about">About</Link>
-            </div>
+      <header>
+        <nav className="navbar navbar-expand-md fixed-top">
+          <Link to="/" className="navbar-brand">Lunch Tyme</Link>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div className="collapse navbar-collapse" id="navbarCollapse">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/about">About</Link>
+              </li>
+            </ul>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
     );
   }
 }
