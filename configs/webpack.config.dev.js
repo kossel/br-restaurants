@@ -12,6 +12,7 @@ module.exports = {
   },
   devtool: 'eval-source-map',
   entry: [
+    'whatwg-fetch',
     'react-hot-loader/patch',
     './index.js',
   ],

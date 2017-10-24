@@ -1,11 +1,23 @@
 import React from 'react';
+import { getRestaurants } from 'services/restaurants';
 
-function About() {
-  return (
-    <div>
-      <h3> Hello about!</h3>
-    </div>
-  );
+class About extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      restaurants: [],
+    };
+  }
+  componentDidMount() {
+    getRestaurants().then(res => {console.log(res)})
+  }
+  render() {
+    return (
+      <div>
+        <h3> Hello about!</h3>
+      </div>
+    );
+  }
 }
 
 export default About;

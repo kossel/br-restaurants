@@ -1,9 +1,10 @@
 import React from 'react';
+import RestaurantList from 'containers/RestaurantsList';
 
 function Home() {
   return (
     <div>
-      home
+      <RestaurantList />
     </div>
   );
 }
