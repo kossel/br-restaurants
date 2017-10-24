@@ -9,9 +9,9 @@ import Footer from 'components/Footer';
 import 'assets/styles.scss';
 
 
-function App(){
+function App() {
   return (
-    <div>
+    <div id="main">
       <Header />
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />

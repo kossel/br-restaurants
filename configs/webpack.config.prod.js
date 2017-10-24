@@ -112,7 +112,7 @@ module.exports = {
                 debug: false,
                 noInfo: true,
                 sourceMap: true,
-              }
+              },
             },
             {
               loader: 'sass-loader',

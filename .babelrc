@@ -13,13 +13,15 @@
   "env": {
     "development": {
       "plugins": ["react-hot-loader/babel"]
+    },
+    "test": {
+      "presets": ["env", "react"]
     }
   },
   "plugins": [
     "transform-object-rest-spread",
     ["transform-runtime", {
-      "polyfill": false,
-      "regenerator": true
+      "polyfill": false
     }]
   ]
 }
