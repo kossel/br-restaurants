@@ -29,12 +29,12 @@ class Home extends React.Component {
         <div className="col-md-4 home__list-container">
           <RestaurantList toggleExpanded={this.toggleExpanded} />
         </div>
-        <div className="col-md-8 d-none d-sm-block" >
+        <div className="col-md-8">
+          <RestaurantsMap className="d-none d-sm-block" />
           <RestaurantDetail
             expanded={this.state.detailExpanded}
             toggleDetail={this.toggleExpanded}
           />
-          <RestaurantsMap />
         </div>
       </div>
     );

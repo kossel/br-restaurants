@@ -5,7 +5,7 @@ import './styles.scss';
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer d-block d-sm-none">
       <div className="d-flex justify-content-around">
         <a href="">
           <img src={lunchIcon} alt="lunch" />
