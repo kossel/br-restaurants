@@ -5,11 +5,66 @@ import MapMarker from 'components/MapMarker';
 
 const propTypes = {
   restaurants: PropTypes.array,
+  defaultCenter: PropTypes.object,
+  zoom: PropTypes.number,
 };
 
 const defaultProps = {
   restaurants: [],
+  defaultCenter: { lat: 32.9542923, lng: -96.8260353 },
+  zoom: 15,
 };
+
+const gmapStyle = [
+  {
+    featureType: 'poi',
+    elementType: 'geometry.fill',
+    stylers: [
+      {
+        color: '#C5E3BF',
+      },
+    ],
+  },
+  {
+    featureType: 'road',
+    elementType: 'geometry',
+    stylers: [
+      {
+        lightness: 100,
+      },
+      {
+        visibility: 'simplified',
+      },
+    ],
+  },
+  {
+    featureType: 'road',
+    elementType: 'geometry.fill',
+    stylers: [
+      {
+        color: '#58af67',
+      },
+    ],
+  },
+  {
+    featureType: 'water',
+    elementType: 'geometry',
+    stylers: [
+      {
+        visibility: 'on',
+      },
+      {
+        color: '#C6E2FF',
+      },
+    ],
+  },
+];
+
+function createMapOptions() {
+  return {
+    styles: gmapStyle,
+  };
+}
 
 class RestaurantsMap extends Component {
   constructor(props) {
@@ -17,20 +72,20 @@ class RestaurantsMap extends Component {
     // hard coded to dallas, but could find the best center and
     // zoom level that fit all locations with map api
     this.state = {
-      center: { lat: 32.9542923, lng: -96.8260353 },
-      zoom: 15,
     };
   }
 
   render() {
-    const { restaurants } = this.props;
+    const { restaurants, defaultCenter, zoom } = this.props;
     if (!restaurants || restaurants.length <= 0) {
       return <div>Loading ... </div>;
     }
+    console.log('new center ', defaultCenter);
     return (
       <GoogleMapReact
-        defaultCenter={this.state.center}
-        defaultZoom={this.state.zoom}
+        center={defaultCenter}
+        zoom={zoom}
+        options={createMapOptions}
       >
         {restaurants.map(restaurant => (
           <MapMarker

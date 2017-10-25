@@ -8,6 +8,7 @@ const propTypes = {
   loading: PropTypes.bool,
   getRestaurantsList: PropTypes.func.isRequired,
   selectRestaurant: PropTypes.func.isRequired,
+  toggleExpanded: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
@@ -18,14 +19,20 @@ const defaultProps = {
 class RestaurantList extends Component {
   constructor(props) {
     super(props);
+    this.handleItemOnClick = this.handleItemOnClick.bind(this);
   }
 
   componentDidMount() {
     this.props.getRestaurantsList();
   }
 
+  handleItemOnClick(res){
+    this.props.selectRestaurant(res);
+    this.props.toggleExpanded(null, true);
+  }
+
   render() {
-    const { restaurants, loading, selectRestaurant } = this.props;
+    const { restaurants, loading } = this.props;
     if (!loading) {
       return (
         <div className="restaurant-list__container">
@@ -36,7 +43,7 @@ class RestaurantList extends Component {
                 name={restaurant.name}
                 bgImage={restaurant.backgroundImageURL}
                 category={restaurant.category}
-                onSelect={selectRestaurant}
+                onSelect={this.handleItemOnClick}
               />
               ),
             )
