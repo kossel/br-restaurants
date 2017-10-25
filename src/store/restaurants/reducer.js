@@ -26,6 +26,14 @@ export default function (state = initialState, action) {
         loading: false,
       };
     }
+    case 'SELECT_RESTAURANT': {
+      const found = state.restaurants.filter(res => res.name === action.data);
+      return {
+        ...state,
+        selectedRestaurant: found[0],
+        // if there were a unique id for each restaurant, I would not copy it...
+      };
+    }
     default: return state;
   }
 };

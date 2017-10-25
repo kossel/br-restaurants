@@ -7,6 +7,7 @@ const propTypes = {
   restaurants: PropTypes.array,
   loading: PropTypes.bool,
   getRestaurantsList: PropTypes.func.isRequired,
+  selectRestaurant: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
@@ -24,7 +25,7 @@ class RestaurantList extends Component {
   }
 
   render() {
-    const { restaurants, loading } = this.props;
+    const { restaurants, loading, selectRestaurant } = this.props;
     if (!loading) {
       return (
         <div className="restaurant-list__container">
@@ -35,6 +36,7 @@ class RestaurantList extends Component {
                 name={restaurant.name}
                 bgImage={restaurant.backgroundImageURL}
                 category={restaurant.category}
+                onSelect={selectRestaurant}
               />
               ),
             )

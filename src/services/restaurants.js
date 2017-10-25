@@ -10,7 +10,7 @@ import mockRestaurants from './mockRestaurants.json';
 
 function getRestaurants() {
   return new Promise((resolve) => {
-    setTimeout(() => resolve(mockRestaurants.restaurants), 1500);
+    setTimeout(() => resolve(mockRestaurants.restaurants), 1500); // simulating async delay
   });
 }
 

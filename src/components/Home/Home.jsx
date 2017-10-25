@@ -1,6 +1,7 @@
 import React from 'react';
 import RestaurantList from 'containers/RestaurantsList';
-import RestaurantDetail from 'components/RestaurantDetail';
+import RestaurantDetail from 'containers/RestaurantDetail';
+import RestaurantsMap from 'containers/RestaurantsMap';
 import './styles.scss';
 
 function Home() {
@@ -11,6 +12,7 @@ function Home() {
       </div>
       <div className="col-md-8 d-none d-sm-block" >
         <RestaurantDetail />
+        <RestaurantsMap />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import getRestaurantsList from 'store/restaurants/actions';
+import { getRestaurantsList, selectRestaurant } from 'store/restaurants/actions';
 import RestaurantList from 'components/RestaurantList';
 
 const mapStateToProps = state => ({
@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getRestaurantsList: () => dispatch(getRestaurantsList()),
+  selectRestaurant: name => dispatch(selectRestaurant(name)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantList);

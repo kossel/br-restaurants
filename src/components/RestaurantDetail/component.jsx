@@ -3,23 +3,11 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const propTypes = {
-  lat: PropTypes.number,
-  lng: PropTypes.number,
-  name: PropTypes.string,
-  category: PropTypes.string,
-  address: PropTypes.string,
-  phone: PropTypes.string,
-  twitter: PropTypes.string,
+  restaurant: PropTypes.object,
 };
 
 const defaultProps = {
-  lat: 0,
-  lng: 0,
-  name: '',
-  category: '',
-  address: '',
-  phone: '',
-  twitter: '',
+  restaurant: null,
 };
 
 class RestaurantDetail extends Component {
@@ -28,16 +16,17 @@ class RestaurantDetail extends Component {
   }
 
   render() {
-    const { lat, lng, name, category, address, phone, twitter } = this.props;
+    const { restaurant } = this.props;
+    if (!restaurant) return null;
     return (
       <div className="restaurant-detail__container">
-        <div>{lat}</div>
-        <div>{lng}</div>
-        <div>{name}</div>
-        <div>{category}</div>
-        <div>{address}</div>
-        <div>{phone}</div>
-        <div>@{twitter}</div>
+        <div>{restaurant.location.lat}</div>
+        <div>{restaurant.location.lng}</div>
+        <div>{restaurant.name}</div>
+        <div>{restaurant.category}</div>
+        <div>{restaurant.location.formattedAddress}</div>
+        <div>{restaurant.contact ? restaurant.contact.phone : ''}</div>
+        <div>{restaurant.contact && restaurant.contact.twitter ? `@${restaurant.contact.twitter}` : ''}</div>
       </div>
     );
   }

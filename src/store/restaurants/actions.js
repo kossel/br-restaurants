@@ -1,6 +1,6 @@
 import { getRestaurants } from 'services/restaurants';
 
-export default function getRestaurantsList() {
+function getRestaurantsList() {
   return (dispatch) => {
     dispatch({
       type: 'FETCH_RESTAURANTS',
@@ -16,3 +16,15 @@ export default function getRestaurantsList() {
       }));
   };
 }
+
+function selectRestaurant(name) {
+  return {
+    type: 'SELECT_RESTAURANT',
+    data: name,
+  };
+}
+
+export {
+  selectRestaurant,
+  getRestaurantsList,
+};

@@ -28,6 +28,7 @@
     "bootstrap": "4.0.0-beta.2",
     "classnames": "^2.2.5",
     "file-loader": "^0.11.2",
+    "google-map-react": "^0.25.0",
     "history": "^4.6.3",
     "moment": "^2.18.1",
     "prop-types": "^15.5.10",

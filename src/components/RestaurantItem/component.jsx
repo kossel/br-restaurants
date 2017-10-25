@@ -7,6 +7,7 @@ const propTypes = {
   bgImage: PropTypes.string,
   name: PropTypes.string,
   category: PropTypes.string,
+  onSelect: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
@@ -15,11 +16,15 @@ const defaultProps = {
   category: '',
 };
 
-function RestaurantItem({ bgImage, name, category }) {
+function RestaurantItem({ bgImage, name, category, onSelect }) {
   const backgroundImage = { backgroundImage: `url(${bgImage})` };
   const cellGradient = { backgroundImage: `url(${cellGradientImg})` };
   return (
-    <div className="restaurant-item__container" style={backgroundImage}>
+    <div
+      className="restaurant-item__container"
+      style={backgroundImage}
+      onClick={() => onSelect(name)}
+    >
       <div className="restaurant-item__labels">
         <div className="restaurant-item__name">{name}</div>
         <span className="restaurant-item__category">{category}</span>
