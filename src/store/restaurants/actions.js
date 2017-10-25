@@ -24,7 +24,22 @@ function selectRestaurant(name) {
   };
 }
 
+function mouseInRestaurant(name) {
+  return {
+    type: 'MOUSE_IN_RESTAURANT',
+    data: name,
+  };
+}
+
+function mouseOutRestaurant() {
+  return {
+    type: 'MOUSE_OUT_RESTAURANT',
+  };
+}
+
 export {
   selectRestaurant,
   getRestaurantsList,
+  mouseOutRestaurant,
+  mouseInRestaurant,
 };

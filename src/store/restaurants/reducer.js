@@ -34,6 +34,22 @@ export default function (state = initialState, action) {
         // if there were a unique id for each restaurant, I would not copy it...
       };
     }
+    case 'MOUSE_IN_RESTAURANT': {
+      const found = state.restaurants.filter(res => res.name === action.data);
+      return {
+        ...state,
+        hoverRestaurant: found[0],
+        // if there were a unique id for each restaurant, I would not copy it...
+      };
+    }
+    case 'MOUSE_OUT_RESTAURANT': {
+      const found = state.restaurants.filter(res => res.name === action.data);
+      return {
+        ...state,
+        hoverRestaurant: null,
+        // if there were a unique id for each restaurant, I would not copy it...
+      };
+    }
     default: return state;
   }
 };

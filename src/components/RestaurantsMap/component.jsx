@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import GoogleMapReact from 'google-map-react';
 import MapMarker from 'components/MapMarker';
+import './styles.scss';
 
 const propTypes = {
   restaurants: PropTypes.array,
@@ -76,11 +77,10 @@ class RestaurantsMap extends Component {
   }
 
   render() {
-    const { restaurants, defaultCenter, zoom } = this.props;
+    const { restaurants, hoverRestaurant, defaultCenter, zoom } = this.props;
     if (!restaurants || restaurants.length <= 0) {
       return <div>Loading ... </div>;
     }
-    console.log('new center ', defaultCenter);
     return (
       <GoogleMapReact
         center={defaultCenter}
@@ -92,6 +92,8 @@ class RestaurantsMap extends Component {
             key={restaurant.name.trim()}
             lat={restaurant.location.lat}
             lng={restaurant.location.lng}
+            text={restaurant.name}
+            className={hoverRestaurant && hoverRestaurant.name === restaurant.name ? 'map-hover' : ''}
           />),
         )
         }

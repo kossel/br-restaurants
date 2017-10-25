@@ -1,11 +1,10 @@
 import React from 'react';
 import './styles.scss';
 
-function MapMarker() {
+function MapMarker({ text, className }) {
   return (
-    <div className="marker">
-      <div className="marker__dot" />
-      <div className="marker__pulse" />
+    <div className={`marker ${className}`}>
+      <span className="marker__text">{text}</span>
     </div>
   );
 }
