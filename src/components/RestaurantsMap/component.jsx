@@ -13,7 +13,7 @@ const propTypes = {
 const defaultProps = {
   restaurants: [],
   defaultCenter: { lat: 32.9542923, lng: -96.8260353 },
-  zoom: 15,
+  zoom: 13,
 };
 
 const gmapStyle = [
