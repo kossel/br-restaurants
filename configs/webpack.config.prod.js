@@ -16,7 +16,7 @@ module.exports = {
   entry: './index.js',
   output: {
     path: path.join(__dirname, '../'),
-    publicPath: '/',
+    publicPath: '/br-restaurants/',
     filename: '[name]-[hash].js',
     chunkFilename: '[name]-[chunkhash].js',
   },
